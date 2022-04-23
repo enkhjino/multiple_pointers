@@ -1,10 +1,23 @@
-import "./styles.css";
+//write a function that accepts a sorted array and counts the unique values in the array
+//input=arr of int
+//output=num of unique val
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+function countUniqueValues(arr) {
+  return new Set(arr).size;
+}
+
+console.log(countUniqueValues1([1, 2, 2, 2, 2, 3, 3, 4]));
+
+function countUniqueValues1(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  var p1 = 0;
+  for (var p2 = 1; p2 < arr.length; p2++) {
+    if (arr[p1] !== arr[p2]) {
+      p1++;
+      arr[p1] = arr[p2];
+    }
+  }
+  return p1 + 1;
+}
