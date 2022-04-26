@@ -21,3 +21,26 @@ function countUniqueValues1(arr) {
   }
   return p1 + 1;
 }
+
+//1 time=O(N) space=O(1)
+//input=2 params, 1 arr of nums-> sorted?, 1 is num
+//output=true/false
+//multiple pointers one=0, two=arr.length-1
+
+function averagePair(arr, num) {
+  if (arr.length === 0) {
+    return [];
+  }
+  var first = 0;
+  var second = arr.length - 1;
+  while (first < second) {
+    if ((arr[first] + arr[second]) / 2 === num) {
+      return true;
+    } else if ((arr[first] + arr[second]) / 2 < num) {
+      first++;
+    } else {
+      second--;
+    }
+  }
+  return false;
+}
